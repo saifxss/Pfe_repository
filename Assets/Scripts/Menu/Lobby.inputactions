@@ -1,0 +1,33 @@
+{
+    "name": "Lobby",
+    "maps": [
+        {
+            "name": "New action map",
+            "id": "20b22687-af40-400f-8aa0-96ab0deac9a7",
+            "actions": [
+                {
+                    "name": "Lobby",
+                    "type": "Button",
+                    "id": "aef35dc5-1a70-4166-b53c-7684a3345de6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "9d5b67d5-64ef-43ca-bc44-8fbaf30bac56",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Lobby",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
