@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using System;
+using TMPro;
 
 public enum eRank {
     S_tier,A_tier,B_tier,C_tier
@@ -23,13 +24,14 @@ public class Maps
 {
     public string Map_Name;
     public List<Levels> _levels;
-    public Image Map_view;
+    public RawImage Map_view;
 }
 public class LevelEditor : MonoBehaviour
 {
     public static LevelEditor levelEditorInstance;
-    public Text MapName;
-    public Image MapView;
+    public TextMeshProUGUI MapName;
+    public RawImage MapView;
+    public TextMeshProUGUI[] TrackName;
     public List<Maps> maps;
     public Maps currentMap;
     public Levels currentlevel;
@@ -38,10 +40,19 @@ public class LevelEditor : MonoBehaviour
     public int indexL;
     public int index;
     public bool CanSpawn;
+    public bool Reload;
+    public int index1;
+    public int index2;
+    public bool _LevelSelection;
+    public bool _menu;
+
+    
     public void Awake()
     {
+        _LevelSelection = false;
+        _menu = true;
         if (levelEditorInstance != null && levelEditorInstance != this)
-            Destroy(this);
+            Destroy(gameObject);
         else
             levelEditorInstance = this;
 
@@ -55,6 +66,7 @@ public class LevelEditor : MonoBehaviour
     }
     public void Again()
     {
+        Reload = true;
         transform.GetChild(6).gameObject.SetActive(true);
     }
 
@@ -62,7 +74,7 @@ public class LevelEditor : MonoBehaviour
 
     private void Update()
     {
-        if (SceneManager.GetActiveScene().name == "UI_Menu")
+        if (SceneManager.GetActiveScene().name == "menu")
             displayMap();
         else if (CanSpawn)
         {
@@ -71,8 +83,14 @@ public class LevelEditor : MonoBehaviour
     }
     public void displayMap()
     {
-        MapView = currentMap.Map_view;
+        MapView.texture = currentMap.Map_view.texture;
         MapName.text = currentMap.Map_Name;
+        for (int i = 0; i < currentMap._levels.Count; i++)
+        {
+            TrackName[i].text= currentMap._levels[i].Track_Name;
+        }
+
+        
     }
     public void OnMapChange(InputAction.CallbackContext context)
     {
@@ -91,6 +109,7 @@ public class LevelEditor : MonoBehaviour
             }
             currentlevel = currentMap._levels[0];
             indexL = 0;
+            index2 = 0;
         }
 
     }
@@ -111,14 +130,93 @@ public class LevelEditor : MonoBehaviour
             }
         }
     }
-    
-    public void OnlevelConfirm(InputAction.CallbackContext context)
+
+    public void OnPress(InputAction.CallbackContext context)
     {
         if (context.ReadValue<float>() != 0)
         {
-            SceneManager.LoadScene(currentMap.Map_Name);
-            transform.GetChild(5).gameObject.SetActive(false);
-            transform.GetChild(6).gameObject.SetActive(false);
+            transform.GetChild(0).GetComponent<Animator>().SetTrigger("Press");
+            transform.GetChild(2).GetChild(1).GetComponent<Animator>().SetTrigger("Press");
+
+        }
+    }
+    public void OnNav(InputAction.CallbackContext context)
+    {
+        if (context.ReadValue<float>() != 0)
+        {
+            if (!_LevelSelection)
+            {
+                if (context.ReadValue<float>() == 1)
+                {
+                    transform.GetChild(0).GetChild(index1).GetChild(1).gameObject.SetActive(false);
+                    index1 = (index1 != 0 ? index1 - 1 : 3);
+                    transform.GetChild(0).GetChild(index1).GetChild(1).gameObject.SetActive(true);
+                }
+                else if (context.ReadValue<float>() == -1)
+                {
+                    transform.GetChild(0).GetChild(index1).GetChild(1).gameObject.SetActive(false);
+                    index1 = (index1 != 3 ? index1 + 1 : 0);
+                    transform.GetChild(0).GetChild(index1).GetChild(1).gameObject.SetActive(true);
+                }
+            }
+            else
+            {
+                if (context.ReadValue<float>() == 1)
+                {
+                    transform.GetChild(5).GetChild(3).GetChild(index2).transform.localPosition = new Vector3(60, transform.GetChild(5).GetChild(3).GetChild(index2).transform.localPosition.y, 0);
+                    index2 = (index2 != 0 ? index2 - 1 : 3);
+                    transform.GetChild(5).GetChild(3).GetChild(index2).transform.localPosition = new Vector3(20, transform.GetChild(5).GetChild(3).GetChild(index2).transform.localPosition.y, 0);
+                }
+                else if (context.ReadValue<float>() == -1)
+                {
+                    transform.GetChild(5).GetChild(3).GetChild(index2).transform.localPosition = new Vector3(60, transform.GetChild(5).GetChild(3).GetChild(index2).transform.localPosition.y, 0);
+                    index2 = (index2 != 3 ? index2 + 1 : 0);
+                    transform.GetChild(5).GetChild(3).GetChild(index2).transform.localPosition = new Vector3(20, transform.GetChild(5).GetChild(3).GetChild(index2).transform.localPosition.y, 0);
+                }
+            }
+
+        }
+    }
+    public void OnLobby(InputAction.CallbackContext context)
+    {
+        if (context.ReadValue<float>() != 0)
+        {
+            if (Reload)
+            {
+                transform.GetChild(6).gameObject.SetActive(false);
+                Reload = false;
+                SceneManager.LoadScene("menu");
+            }
+
+        }
+    }
+    public void OnConfirm(InputAction.CallbackContext context)
+    {
+        if (context.ReadValue<float>() != 0)
+        {
+            if (_LevelSelection)
+            {
+                transform.GetChild(5).gameObject.SetActive(false);
+                SceneManager.LoadScene(currentMap.Map_Name);
+
+            }
+            else if (_menu)
+            {
+                if (index1 == 0)
+                {
+                    transform.GetChild(0).gameObject.SetActive(false);
+                    transform.GetChild(2).gameObject.SetActive(false);
+                    transform.GetChild(5).gameObject.SetActive(true);
+                    _LevelSelection = true;
+                }
+                if (index1 == 3)
+                {
+                    Application.Quit();
+                }
+                _menu = false;
+            }
+
+
         }
     }
 }

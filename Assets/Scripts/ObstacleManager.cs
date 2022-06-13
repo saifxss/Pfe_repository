@@ -73,30 +73,61 @@ public class ObstacleManager : MonoBehaviour
 
     public void Spawn()
     {
-        foreach (ObstacleObj obj in _obstacles2)
+        if(SceneManager.GetActiveScene().name == "Retro")
         {
-            switch (obj.position)
+            foreach (ObstacleObj obj in _obstacles2)
             {
-                case ObstacleObj.Position.Left:
-                    obj.row = -5;
-                    break;
-                case ObstacleObj.Position.Mid:
-                    obj.row = -3;
-                    break;
-                case ObstacleObj.Position.Right:
-                    obj.row = -1;
-                    break;
+                switch (obj.position)
+                {
+                    case ObstacleObj.Position.Left:
+                        obj.row = -5;
+                        break;
+                    case ObstacleObj.Position.Mid:
+                        obj.row = -3;
+                        break;
+                    case ObstacleObj.Position.Right:
+                        obj.row = -1;
+                        break;
+                }
+                if (!obj.spawned && _audio.time > obj.time)
+                {
+                    obj.spawned = true;
+                    GameObject x = Instantiate(obj.prefab, new Vector3(obj.row, 0, 30), Quaternion.identity);
+                    /*if (x.tag == "Obstacle")
+                        x.GetComponent<Obstacle>().speed = obj.speed;
+                    else
+                        x.GetComponent<AbilityStone>().speed = obj.speed;*/
+                }
             }
-            if (!obj.spawned && _audio.time > obj.time)
+            if (SceneManager.GetActiveScene().name == "Halloween")
             {
-                obj.spawned = true;
-                GameObject x = Instantiate(obj.prefab, new Vector3(obj.row, 0, 30), Quaternion.identity);
-                /*if (x.tag == "Obstacle")
-                    x.GetComponent<Obstacle>().speed = obj.speed;
-                else
-                    x.GetComponent<AbilityStone>().speed = obj.speed;*/
+                foreach (ObstacleObj obj in _obstacles2)
+                {
+                    switch (obj.position)
+                    {
+                        case ObstacleObj.Position.Left:
+                            obj.row = -5.5f;
+                            break;
+                        case ObstacleObj.Position.Mid:
+                            obj.row = 1.5f;
+                            break;
+                        case ObstacleObj.Position.Right:
+                            obj.row = 8.5f;
+                            break;
+                    }
+                    if (!obj.spawned && _audio.time > obj.time)
+                    {
+                        obj.spawned = true;
+                        GameObject x = Instantiate(obj.prefab, new Vector3(obj.row, 0, 30), Quaternion.identity);
+                        /*if (x.tag == "Obstacle")
+                            x.GetComponent<Obstacle>().speed = obj.speed;
+                        else
+                            x.GetComponent<AbilityStone>().speed = obj.speed;*/
+                    }
+                }
             }
         }
+        
     }
 }
 

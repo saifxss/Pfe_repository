@@ -161,6 +161,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "Tap"
+                },
+                {
+                    "name": "Lobby",
+                    "type": "Button",
+                    "id": "644d310f-7bff-4d9f-9b03-3fe7bf773e01",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Tap"
                 }
             ],
             "bindings": [
@@ -293,6 +301,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "LevelConfirm",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4085fd67-b6d7-47b7-97ec-5ab8a6a26687",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Lobby",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

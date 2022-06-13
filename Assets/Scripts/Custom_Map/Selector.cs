@@ -221,6 +221,7 @@ public class Selector : MonoBehaviour
         Debug.Log(countSaved);
         for(int i = 0; i<countSaved; i++)
         {
+            //gameObject x=Instantiate() 
             string sTemp = PlayerPrefs.GetString("SavedCustom" + i);
             Debug.Log(sTemp);
             Save sTempInstance = JsonUtility.FromJson<Save>(sTemp);
