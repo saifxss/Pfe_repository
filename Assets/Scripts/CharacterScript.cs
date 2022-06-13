@@ -81,6 +81,12 @@ public class CharacterScript : MonoBehaviour
     {
         _attack4 = context.ReadValue<float>();
     }
+    private void FixedUpdate()
+    {
+        // Applying Movement
+        transform.position = new Vector3(rows[targetRow], 0, 0);
+        charController.Move(movement * Time.deltaTime);
+    }
     void Update()
     {
         if (_freez)
@@ -114,9 +120,7 @@ public class CharacterScript : MonoBehaviour
             //cam.transform.Rotate(-10, 0, 0);
             movement.y += Physics.gravity.y * gravityMultiplier;
         }
-        // Applying Movement
-        transform.position = new Vector3(rows[targetRow], 0, 0);
-        charController.Move(movement * Time.deltaTime);
+        
 
         //Move Character Controller towards target row when distance is greater than 0.05
         if (Mathf.Abs(transform.position.x - rows[targetRow]) > 0.05f)

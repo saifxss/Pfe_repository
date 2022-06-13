@@ -1318,7 +1318,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 247209829}
         m_TargetAssemblyTypeName: LevelEditor, Assembly-CSharp
-        m_MethodName: OnConfirm
+        m_MethodName: OnLobby
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

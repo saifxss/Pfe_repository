@@ -183,7 +183,9 @@ public class LevelEditor : MonoBehaviour
         {
             if (Reload)
             {
-                transform.GetChild(6).gameObject.SetActive(false);
+                Debug.Log("sa");
+                GameObject.Find("Again").SetActive(false);
+                //transform.GetChild(6).gameObject.SetActive(false);
                 Reload = false;
                 SceneManager.LoadScene("menu");
             }

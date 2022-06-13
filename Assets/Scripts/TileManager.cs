@@ -22,7 +22,7 @@ public class TileManager : MonoBehaviour
     public void SpawnTile()
     {
         GameObject go;
-        go = Instantiate(TilePrefabs[Random.Range(0,2)]) as GameObject;
+        go = Instantiate(TilePrefabs[Random.Range(0,3)]) as GameObject;
         go.transform.position = transform.position;
     }
 

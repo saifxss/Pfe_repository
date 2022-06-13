@@ -1325,7 +1325,6 @@ MonoBehaviour:
   m_Script: {fileID: 658112155}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Entries: []
 --- !u!4 &348565228
 Transform:
   m_ObjectHideFlags: 19
@@ -3369,7 +3368,6 @@ MonoBehaviour:
   m_Script: {fileID: 1576845237}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Entries: []
 --- !u!4 &1013582611
 Transform:
   m_ObjectHideFlags: 19
@@ -7064,7 +7062,7 @@ PrefabInstance:
       objectReference: {fileID: 2028335079}
     - target: {fileID: 702343752726683350, guid: e81ab8779571d044096938ca44562b1c, type: 3}
       propertyPath: jumpHeight
-      value: 16
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 702343752726683350, guid: e81ab8779571d044096938ca44562b1c, type: 3}
       propertyPath: rows.Array.size
@@ -7072,7 +7070,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 702343752726683350, guid: e81ab8779571d044096938ca44562b1c, type: 3}
       propertyPath: gravityMultiplier
-      value: 0.03
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 702343752726683350, guid: e81ab8779571d044096938ca44562b1c, type: 3}
       propertyPath: rows.Array.data[0]
