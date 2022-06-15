@@ -69,11 +69,18 @@ public class ObstacleManager : MonoBehaviour
         _audio.GetSpectrumData(_samples,0,FFTWindow.Blackman);
         MakeFreqBands();
         Spawn();
+        if (SceneManager.GetActiveScene().name != "menu")
+        {
+            if (_audio.clip.length == _audio.time)
+            {
+                LevelEditor.levelEditorInstance.Again();
+            }
+        }
     }
 
     public void Spawn()
     {
-        if(SceneManager.GetActiveScene().name == "Retro")
+        if (SceneManager.GetActiveScene().name == "Retro")
         {
             foreach (ObstacleObj obj in _obstacles2)
             {
@@ -89,18 +96,16 @@ public class ObstacleManager : MonoBehaviour
                         obj.row = -1;
                         break;
                 }
-                if (!obj.spawned && _audio.time > obj.time)
+                if (!obj.spawned && _audio.time > obj.time&&Time.timeScale!=0)
                 {
                     obj.spawned = true;
                     GameObject x = Instantiate(obj.prefab, new Vector3(obj.row, 0.3f, 30), Quaternion.identity);
-                    /*if (x.tag == "Obstacle")
-                        x.GetComponent<Obstacle>().speed = obj.speed;
-                    else
-                        x.GetComponent<AbilityStone>().speed = obj.speed;*/
                 }
             }
-            if (SceneManager.GetActiveScene().name == "Halloween")
-            {
+        }
+             if (SceneManager.GetActiveScene().name == "Halloween")
+             {
+
                 foreach (ObstacleObj obj in _obstacles2)
                 {
                     switch (obj.position)
@@ -115,19 +120,15 @@ public class ObstacleManager : MonoBehaviour
                             obj.row = 8.5f;
                             break;
                     }
-                    if (!obj.spawned && _audio.time > obj.time)
+                    if (!obj.spawned && _audio.time > obj.time && Time.timeScale != 0)
                     {
                         obj.spawned = true;
-                        GameObject x = Instantiate(obj.prefab, new Vector3(obj.row, 0, 30), Quaternion.identity);
-                        /*if (x.tag == "Obstacle")
-                            x.GetComponent<Obstacle>().speed = obj.speed;
-                        else
-                            x.GetComponent<AbilityStone>().speed = obj.speed;*/
+                        GameObject x = Instantiate(obj.prefab, new Vector3(obj.row, 0, 120), Quaternion.identity);
                     }
                 }
-            }
-        }
-        
+             }
     }
+        
+
 }
 

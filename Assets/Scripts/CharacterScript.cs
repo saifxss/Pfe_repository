@@ -40,7 +40,7 @@ public class CharacterScript : MonoBehaviour
         anim = GetComponent<Animator>();
         charController = GetComponent<CharacterController>();   
         transform.position = new Vector3(rows[targetRow], 0, 0);
-        Debug.Log(rows[targetRow]);
+        
     }
     public void PlayerChancesN()
     {
@@ -48,7 +48,7 @@ public class CharacterScript : MonoBehaviour
     }
     public void PlayerChancesP()
     {
-        Chances++;
+        Chances=3;
     }
 
     public IEnumerator turnRedEffect()

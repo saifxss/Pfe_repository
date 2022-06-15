@@ -1325,6 +1325,7 @@ MonoBehaviour:
   m_Script: {fileID: 658112155}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Entries: []
 --- !u!4 &348565228
 Transform:
   m_ObjectHideFlags: 19
@@ -2319,17 +2320,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: M 0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d33854a64c2dd524f97231d47907670c, type: 2}
+  m_sharedMaterial: {fileID: 5798666431024337704, guid: d33854a64c2dd524f97231d47907670c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4291012627
+  m_fontColor: {r: 0.07450981, g: 0.65882355, b: 0.7647059, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3368,6 +3369,7 @@ MonoBehaviour:
   m_Script: {fileID: 1576845237}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Entries: []
 --- !u!4 &1013582611
 Transform:
   m_ObjectHideFlags: 19
@@ -3615,17 +3617,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: S 0
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: d33854a64c2dd524f97231d47907670c, type: 2}
+  m_sharedMaterial: {fileID: 5798666431024337704, guid: d33854a64c2dd524f97231d47907670c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4291012627
+  m_fontColor: {r: 0.07450981, g: 0.65882355, b: 0.76470596, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -5425,7 +5427,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -7062,7 +7064,7 @@ PrefabInstance:
       objectReference: {fileID: 2028335079}
     - target: {fileID: 702343752726683350, guid: e81ab8779571d044096938ca44562b1c, type: 3}
       propertyPath: jumpHeight
-      value: 12
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 702343752726683350, guid: e81ab8779571d044096938ca44562b1c, type: 3}
       propertyPath: rows.Array.size

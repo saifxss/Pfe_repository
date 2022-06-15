@@ -13,9 +13,9 @@ public class Score : MonoBehaviour
 
     private void Update()
     {
-        Score_text.text = _score.ToString();
+        Score_text.text = "S "+_score.ToString();
         if (scoreMulti > 1)
-            Multiplier_text.text = scoreMulti.ToString();
+            Multiplier_text.text = "M "+scoreMulti.ToString();
         else
             Multiplier_text.text = "";
     }

@@ -81,6 +81,7 @@ public class Obstacle : MonoBehaviour
             }
         }else if(other.gameObject.tag == "Finish")
         {
+            Debug.Log("majdi");
             if (_obstacle == Obstacles.obstcale.block)
             {
                 Score.scoreMulti = 1;
