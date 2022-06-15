@@ -2377,28 +2377,58 @@ MonoBehaviour:
   Track: {fileID: 1877166543}
   trackTime: 0
   _obstacles2:
-  - prefab: {fileID: 3039223475250989553, guid: 2ea7912d33d25c64cafbe03b774b7c2b, type: 3}
+  - prefab: {fileID: 6909473919840942727, guid: c0d790a691cc6ef49a82130f5186384b, type: 3}
     row: 0
     position: 1
     time: 5
     speed: 10
     spawned: 0
+  - prefab: {fileID: 303699757371818468, guid: 6babaec55e0231845b023bb520787964, type: 3}
+    row: 0
+    position: 1
+    time: 7
+    speed: 10
+    spawned: 0
   - prefab: {fileID: 7808464376385931987, guid: 51c5235cceff54048ac3b9f94b8e140b, type: 3}
     row: 0
-    position: 2
-    time: 7
+    position: 1
+    time: 9
     speed: 10
     spawned: 0
   - prefab: {fileID: 1101794811508917292, guid: 0abf07c3e72cf7d428e8be156650729e, type: 3}
     row: 0
-    position: 0
-    time: 9
+    position: 1
+    time: 11
     speed: 10
     spawned: 0
-  - prefab: {fileID: 6909473919840942727, guid: c0d790a691cc6ef49a82130f5186384b, type: 3}
+  - prefab: {fileID: 197615330082602936, guid: b0349fc5397e39b47b125bd069537634, type: 3}
     row: 0
     position: 1
-    time: 9
+    time: 13
+    speed: 10
+    spawned: 0
+  - prefab: {fileID: 6635427093356982253, guid: 76c148fb08573424e83c4056a0da5a13, type: 3}
+    row: 0
+    position: 1
+    time: 15
+    speed: 10
+    spawned: 0
+  - prefab: {fileID: 8672505409706459807, guid: 9daac0960ff5b9c488c8019a036373bf, type: 3}
+    row: 0
+    position: 1
+    time: 17
+    speed: 10
+    spawned: 0
+  - prefab: {fileID: 5358823496310847609, guid: d1973c8816ab70c49af61200a3c6a021, type: 3}
+    row: 0
+    position: 1
+    time: 19
+    speed: 10
+    spawned: 0
+  - prefab: {fileID: 3039223475250989553, guid: 2ea7912d33d25c64cafbe03b774b7c2b, type: 3}
+    row: 0
+    position: 1
+    time: 21
     speed: 10
     spawned: 0
 --- !u!114 &737771640

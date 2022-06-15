@@ -18,6 +18,7 @@ public class Levels
     public AudioClip track;
     public int highScore;
     public eRank rank;
+    public bool Locked;
 }
 [System.Serializable]
 public class Maps
@@ -192,6 +193,13 @@ public class LevelEditor : MonoBehaviour
             }
 
         }
+        
+    }
+    IEnumerator Shake()
+    {
+        transform.GetChild(5).GetChild(3).GetChild(index2).transform.localPosition = new Vector3(0, transform.GetChild(5).GetChild(3).GetChild(index2).transform.localPosition.y, 0);
+        yield return new WaitForSeconds(0.5f);
+        transform.GetChild(5).GetChild(3).GetChild(index2).transform.localPosition = new Vector3(60, transform.GetChild(5).GetChild(3).GetChild(index2).transform.localPosition.y, 0);
     }
     public void OnConfirm(InputAction.CallbackContext context)
     {
@@ -199,8 +207,17 @@ public class LevelEditor : MonoBehaviour
         {
             if (_LevelSelection)
             {
-                transform.GetChild(5).gameObject.SetActive(false);
-                SceneManager.LoadScene(currentMap.Map_Name);
+                
+                if (!currentlevel.Locked)
+                {
+                    transform.GetChild(5).gameObject.SetActive(false);
+                    SceneManager.LoadScene(currentMap.Map_Name);
+                }
+                else
+                {
+                    StartCoroutine(Shake());
+                }
+                    
 
             }
             else if (_menu)
