@@ -184,6 +184,17 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "",
+                    "id": "d8b5cebf-d54e-4219-b79e-3da53c6a0565",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Press",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
                     "name": "1D Axis",
                     "id": "744db770-018d-4000-bda1-c0ba5b15e081",
                     "path": "1DAxis",
@@ -219,7 +230,7 @@
                 {
                     "name": "",
                     "id": "e525fa08-fad2-4cea-a3d9-612b115791e3",
-                    "path": "<Keyboard>/o",
+                    "path": "<Keyboard>/enter",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -318,5 +329,17 @@
             ]
         }
     ],
-    "controlSchemes": []
+    "controlSchemes": [
+        {
+            "name": "New control scheme",
+            "bindingGroup": "New control scheme",
+            "devices": [
+                {
+                    "devicePath": "<Gamepad>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
 }

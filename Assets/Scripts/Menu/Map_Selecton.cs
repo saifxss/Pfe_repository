@@ -197,6 +197,17 @@ public class @Map_Selecton : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
+                    ""name"": """",
+                    ""id"": ""d8b5cebf-d54e-4219-b79e-3da53c6a0565"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Press"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
                     ""name"": ""1D Axis"",
                     ""id"": ""744db770-018d-4000-bda1-c0ba5b15e081"",
                     ""path"": ""1DAxis"",
@@ -232,7 +243,7 @@ public class @Map_Selecton : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""e525fa08-fad2-4cea-a3d9-612b115791e3"",
-                    ""path"": ""<Keyboard>/o"",
+                    ""path"": ""<Keyboard>/enter"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -331,7 +342,19 @@ public class @Map_Selecton : IInputActionCollection, IDisposable
             ]
         }
     ],
-    ""controlSchemes"": []
+    ""controlSchemes"": [
+        {
+            ""name"": ""New control scheme"",
+            ""bindingGroup"": ""New control scheme"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<Gamepad>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
+        }
+    ]
 }");
         // Map_selection
         m_Map_selection = asset.FindActionMap("Map_selection", throwIfNotFound: true);
@@ -522,6 +545,15 @@ public class @Map_Selecton : IInputActionCollection, IDisposable
         }
     }
     public UiActions @Ui => new UiActions(this);
+    private int m_NewcontrolschemeSchemeIndex = -1;
+    public InputControlScheme NewcontrolschemeScheme
+    {
+        get
+        {
+            if (m_NewcontrolschemeSchemeIndex == -1) m_NewcontrolschemeSchemeIndex = asset.FindControlSchemeIndex("New control scheme");
+            return asset.controlSchemes[m_NewcontrolschemeSchemeIndex];
+        }
+    }
     public interface IMap_selectionActions
     {
         void OnMapNav(InputAction.CallbackContext context);
