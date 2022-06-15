@@ -23,7 +23,7 @@ public class TileManager : MonoBehaviour
     {
         GameObject go;
         go = Instantiate(TilePrefabs[Random.Range(0,3)]) as GameObject;
-        go.transform.position = transform.position;
+        go.transform.position = new Vector3(transform.localPosition.x,go.transform.localPosition.y,transform.localPosition.z);
     }
 
     

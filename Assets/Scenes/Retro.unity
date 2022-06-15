@@ -7054,7 +7054,7 @@ PrefabInstance:
       objectReference: {fileID: 699126222}
     - target: {fileID: 702343752726683350, guid: e81ab8779571d044096938ca44562b1c, type: 3}
       propertyPath: Chances
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 702343752726683350, guid: e81ab8779571d044096938ca44562b1c, type: 3}
       propertyPath: redEffect

@@ -42,10 +42,15 @@ public class CharacterScript : MonoBehaviour
         transform.position = new Vector3(rows[targetRow], 0, 0);
         Debug.Log(rows[targetRow]);
     }
-    public void PlayerChances()
+    public void PlayerChancesN()
     {
         Chances--;
     }
+    public void PlayerChancesP()
+    {
+        Chances++;
+    }
+
     public IEnumerator turnRedEffect()
     {
         redEffect.SetActive(true);
@@ -205,6 +210,7 @@ public class CharacterScript : MonoBehaviour
         {
             Time.timeScale = 0;
             LevelEditor.levelEditorInstance.Again();
+            Chances = 3;
         }
     }
     IEnumerator crouchTimer()

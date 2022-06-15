@@ -92,7 +92,7 @@ public class ObstacleManager : MonoBehaviour
                 if (!obj.spawned && _audio.time > obj.time)
                 {
                     obj.spawned = true;
-                    GameObject x = Instantiate(obj.prefab, new Vector3(obj.row, 0, 30), Quaternion.identity);
+                    GameObject x = Instantiate(obj.prefab, new Vector3(obj.row, 0.3f, 30), Quaternion.identity);
                     /*if (x.tag == "Obstacle")
                         x.GetComponent<Obstacle>().speed = obj.speed;
                     else

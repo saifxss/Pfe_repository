@@ -37,7 +37,7 @@ public class Obstacle : MonoBehaviour
             
             if (_obstacle != Obstacles.obstcale.block)
             {
-                Player.PlayerChances();
+                Player.PlayerChancesN();
 
                 if (other.GetComponent<CharacterScript>()._ability != Ability.ability.Shield)
                 {
@@ -56,6 +56,7 @@ public class Obstacle : MonoBehaviour
                 {
                     //addscore and destroy gameobject
                     Score.scoreMulti += 1;
+                    Player.PlayerChancesP();
                     Score._score += 10 * other.GetComponent<Score>()._x2 * Score.scoreMulti;
                     Destroy(gameObject);
                     return;
@@ -63,6 +64,7 @@ public class Obstacle : MonoBehaviour
                 if ((other.GetComponent<CharacterScript>()._secondAttack)&& block == 2)
                 {
                     Score.scoreMulti += 1;
+                    Player.PlayerChancesP();
                     Score._score += 10 * other.GetComponent<Score>()._x2 * Score.scoreMulti;
                     Destroy(gameObject);
                     return;
@@ -70,6 +72,7 @@ public class Obstacle : MonoBehaviour
                 if ((other.GetComponent<CharacterScript>()._thirdAttack)&& block == 3)
                 {
                     Score.scoreMulti += 1;
+                    Player.PlayerChancesP();
                     Score._score += 10 * other.GetComponent<Score>()._x2* Score.scoreMulti;
                     Destroy(gameObject);
                     return;
@@ -82,13 +85,13 @@ public class Obstacle : MonoBehaviour
             {
                 Score.scoreMulti = 1;
                 Player.StartCoroutine(Player.turnRedEffect());
-                Player.PlayerChances();
+                Player.PlayerChancesN();
             }
             else
             {
                 Score.scoreMulti += 1;
                 Score._score += 10  * Score.scoreMulti;
-                
+                Player.PlayerChancesP();
             }
                 Destroy(gameObject);
         }
