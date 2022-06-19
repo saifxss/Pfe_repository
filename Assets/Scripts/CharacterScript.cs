@@ -40,7 +40,7 @@ public class CharacterScript : MonoBehaviour
         anim = GetComponent<Animator>();
         charController = GetComponent<CharacterController>();   
         transform.position = new Vector3(rows[targetRow], 0, 0);
-        
+
     }
     public void PlayerChancesN()
     {
@@ -48,7 +48,7 @@ public class CharacterScript : MonoBehaviour
     }
     public void PlayerChancesP()
     {
-        Chances=3;
+        Chances=2;
     }
 
     public IEnumerator turnRedEffect()
@@ -222,21 +222,27 @@ public class CharacterScript : MonoBehaviour
     }
     IEnumerator FirstAttack()
     {
-        yield return new WaitForSeconds(3f);
+        transform.GetChild(3).gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.8f);
         anim.SetBool("Run", true);
         _firstAttack = false;
+        transform.GetChild(3).gameObject.SetActive(false);
     }
     IEnumerator SecondAttack()
     {
-        yield return new WaitForSeconds(3f);
+        transform.GetChild(3).gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.8f);
         anim.SetBool("Run", true);
         _secondAttack = false;
+        transform.GetChild(3).gameObject.SetActive(false);
     }
     IEnumerator thirdAttack()
     {
-        yield return new WaitForSeconds(0.3f);
+        transform.GetChild(3).gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.8f);
         anim.SetBool("Run", true);
         _thirdAttack = false;
+        transform.GetChild(3).gameObject.SetActive(false);
     }
     IEnumerator Freez()
     {

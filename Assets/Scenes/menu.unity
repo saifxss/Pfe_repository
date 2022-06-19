@@ -1331,7 +1331,7 @@ MonoBehaviour:
     m_ActionId: 644d310f-7bff-4d9f-9b03-3fe7bf773e01
     m_ActionName: Ui/Lobby[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
+  m_DefaultControlScheme: New control scheme2
   m_DefaultActionMap: Ui
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
