@@ -30,6 +30,8 @@ public class Selector : MonoBehaviour
     int maxC;
     public GameObject Items;
     public GameObject array;
+    public GameObject save_prefab;
+    public GameObject SaveList;
     public TextMeshProUGUI text;
     float _bpmchange;
     float _bpmNav;
@@ -118,14 +120,14 @@ public class Selector : MonoBehaviour
             {
                 //scrollbar.value = scrollbar.value - 0.1f;
                 Items.transform.GetChild(m).GetChild(0).gameObject.SetActive(false);
-                m = (m != 0 ? m - 1 : maxC);
+                m = (m != 0 ? m - 1 : 5);
                 Items.transform.GetChild(m).GetChild(0).gameObject.SetActive(true);
             }
             else if (_inav == 1)
             {
                 //scrollbar.value = scrollbar.value+0.1f;
                 Items.transform.GetChild(m).GetChild(0).gameObject.SetActive(false);
-                m = (m != maxC ? m + 1 : 0);
+                m = (m != 5 ? m + 1 : 0);
                 Items.transform.GetChild(m).GetChild(0).gameObject.SetActive(true);
             }
         }
@@ -169,7 +171,7 @@ public class Selector : MonoBehaviour
     {
         _ic=context.ReadValue<float>();
         if(_ic != 0){
-            array.transform.GetChild(l).GetChild(c).GetChild(0).GetComponent<Image>().color = Items.transform.GetChild(m).GetComponent<Image>().color;
+            array.transform.GetChild(l).GetChild(c).GetChild(0).GetComponent<RawImage>().texture = Items.transform.GetChild(m).GetComponent<RawImage>().texture;
             array.transform.GetChild(l).GetChild(c).GetComponent<Item_Holder>().item= Items.transform.GetChild(m).GetComponent<Item_Holder>().item;
         }
     }
@@ -178,7 +180,7 @@ public class Selector : MonoBehaviour
         _id = context.ReadValue<float>();
         if (_id != 0)
         {
-            array.transform.GetChild(l).GetChild(c).GetChild(0).GetComponent<Image>().color = Color.white;
+            array.transform.GetChild(l).GetChild(c).GetChild(0).GetComponent<RawImage>().texture =null ;
             array.transform.GetChild(l).GetChild(c).GetComponent<Item_Holder>().item =null;
         }
     }
@@ -221,7 +223,8 @@ public class Selector : MonoBehaviour
         Debug.Log(countSaved);
         for(int i = 0; i<countSaved; i++)
         {
-            //gameObject x=Instantiate() 
+            GameObject x = Instantiate(save_prefab, SaveList.transform.GetChild(0).GetChild(0).GetChild(0));
+            //x.transform.GetChild(0).gameObject.GetComponent<TextMeshPro>().text = ("SavedCustom" + i);
             string sTemp = PlayerPrefs.GetString("SavedCustom" + i);
             Debug.Log(sTemp);
             Save sTempInstance = JsonUtility.FromJson<Save>(sTemp);

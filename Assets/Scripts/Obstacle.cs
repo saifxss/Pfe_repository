@@ -19,7 +19,6 @@ public class Obstacle : MonoBehaviour
     public int block;
     public float speed;
     public CharacterScript Player;
-
     private void Start()
     {
         speed = 30;
@@ -56,7 +55,8 @@ public class Obstacle : MonoBehaviour
                 {
                     //addscore and destroy gameobject
                     Score.scoreMulti += 1;
-                    Player.PlayerChancesP();
+                    Player.PlayerChancesPB();
+                    
                     Score._score += 10 * other.GetComponent<Score>()._x2 * Score.scoreMulti;
                     Destroy(gameObject);
                     return;
@@ -64,7 +64,7 @@ public class Obstacle : MonoBehaviour
                 if ((other.GetComponent<CharacterScript>()._secondAttack)&& block == 2)
                 {
                     Score.scoreMulti += 1;
-                    Player.PlayerChancesP();
+                    Player.PlayerChancesPB();
                     Score._score += 10 * other.GetComponent<Score>()._x2 * Score.scoreMulti;
                     Destroy(gameObject);
                     return;
@@ -72,7 +72,7 @@ public class Obstacle : MonoBehaviour
                 if ((other.GetComponent<CharacterScript>()._thirdAttack)&& block == 3)
                 {
                     Score.scoreMulti += 1;
-                    Player.PlayerChancesP();
+                    Player.PlayerChancesPB();
                     Score._score += 10 * other.GetComponent<Score>()._x2* Score.scoreMulti;
                     Destroy(gameObject);
                     return;
@@ -81,12 +81,11 @@ public class Obstacle : MonoBehaviour
             }
         }else if(other.gameObject.tag == "Finish")
         {
-            Debug.Log("majdi");
             if (_obstacle == Obstacles.obstcale.block)
             {
                 Score.scoreMulti = 1;
                 Player.StartCoroutine(Player.turnRedEffect());
-                Player.PlayerChancesN();
+                Player.PlayerChancesNB();
             }
             else
             {

@@ -12,7 +12,7 @@ public enum ePosition
     {
         public string name;
         public GameObject _Prefab;
-        public Image image;
+        public RawImage image;
         public ePosition pos;
         public float time;
         public float speed;

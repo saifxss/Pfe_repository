@@ -34,21 +34,43 @@ public class CharacterScript : MonoBehaviour
     public float playerSpeed;
     public int playerid;
     public int Chances;
+    public GameObject _image;
     private void Awake()
     {
         bc = GetComponent<BoxCollider>();
         anim = GetComponent<Animator>();
         charController = GetComponent<CharacterController>();   
         transform.position = new Vector3(rows[targetRow], 0, 0);
+        _image = GameObject.FindGameObjectWithTag("image");
 
+    }
+    IEnumerator VisualEffect(int x)
+    {
+        _image.transform.GetChild(x).gameObject.SetActive(true);
+        yield return new WaitForSeconds(0.3f);
+        _image.transform.GetChild(x).gameObject.SetActive(false);
     }
     public void PlayerChancesN()
     {
         Chances--;
+        
     }
     public void PlayerChancesP()
     {
+        Chances = 2;
+        
+    }
+    public void PlayerChancesNB()
+    {
+        Debug.Log("Miss");
+        Chances--;
+        StartCoroutine(VisualEffect(0));
+    }
+    public void PlayerChancesPB()
+    {
+        Debug.Log("zid");
         Chances=2;
+        StartCoroutine(VisualEffect(1));
     }
 
     public IEnumerator turnRedEffect()
