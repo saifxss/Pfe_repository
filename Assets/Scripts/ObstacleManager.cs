@@ -35,7 +35,7 @@ public class ObstacleManager : MonoBehaviour
     }
     private void SceneManager_sceneLoaded(Scene arg0, LoadSceneMode arg1)
     {
-        //_obstacles2 = LevelEditor.levelEditorInstance.currentlevel.Array;
+        _obstacles2 = LevelEditor.levelEditorInstance.currentlevel.Array;
         Time.timeScale = 1;
     }
     public void ChangeArray(List<ObstacleObj> array)
