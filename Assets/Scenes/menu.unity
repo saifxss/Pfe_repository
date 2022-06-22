@@ -5173,7 +5173,7 @@ MonoBehaviour:
   index1: 0
   index2: 0
   _LevelSelection: 0
-  _menu: 0
+  _menu: 1
 --- !u!1 &278607203
 GameObject:
   m_ObjectHideFlags: 0

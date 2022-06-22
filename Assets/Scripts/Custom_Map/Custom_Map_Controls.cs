@@ -97,6 +97,14 @@ public class @Custom_Map_Controls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""Tap""
+                },
+                {
+                    ""name"": ""BackToMenu"",
+                    ""type"": ""Button"",
+                    ""id"": ""7b29f88f-1cfc-481c-b992-2a472b46cf76"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Tap""
                 }
             ],
             ""bindings"": [
@@ -319,6 +327,17 @@ public class @Custom_Map_Controls : IInputActionCollection, IDisposable
                     ""action"": ""Scroll"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""547e91a6-0ad0-400e-bb8d-3c4a97a1a152"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""BackToMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -337,6 +356,7 @@ public class @Custom_Map_Controls : IInputActionCollection, IDisposable
         m_Custom_Map_Save = m_Custom_Map.FindAction("Save", throwIfNotFound: true);
         m_Custom_Map_Load = m_Custom_Map.FindAction("Load", throwIfNotFound: true);
         m_Custom_Map_Scroll = m_Custom_Map.FindAction("Scroll", throwIfNotFound: true);
+        m_Custom_Map_BackToMenu = m_Custom_Map.FindAction("BackToMenu", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -396,6 +416,7 @@ public class @Custom_Map_Controls : IInputActionCollection, IDisposable
     private readonly InputAction m_Custom_Map_Save;
     private readonly InputAction m_Custom_Map_Load;
     private readonly InputAction m_Custom_Map_Scroll;
+    private readonly InputAction m_Custom_Map_BackToMenu;
     public struct Custom_MapActions
     {
         private @Custom_Map_Controls m_Wrapper;
@@ -410,6 +431,7 @@ public class @Custom_Map_Controls : IInputActionCollection, IDisposable
         public InputAction @Save => m_Wrapper.m_Custom_Map_Save;
         public InputAction @Load => m_Wrapper.m_Custom_Map_Load;
         public InputAction @Scroll => m_Wrapper.m_Custom_Map_Scroll;
+        public InputAction @BackToMenu => m_Wrapper.m_Custom_Map_BackToMenu;
         public InputActionMap Get() { return m_Wrapper.m_Custom_Map; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -449,6 +471,9 @@ public class @Custom_Map_Controls : IInputActionCollection, IDisposable
                 @Scroll.started -= m_Wrapper.m_Custom_MapActionsCallbackInterface.OnScroll;
                 @Scroll.performed -= m_Wrapper.m_Custom_MapActionsCallbackInterface.OnScroll;
                 @Scroll.canceled -= m_Wrapper.m_Custom_MapActionsCallbackInterface.OnScroll;
+                @BackToMenu.started -= m_Wrapper.m_Custom_MapActionsCallbackInterface.OnBackToMenu;
+                @BackToMenu.performed -= m_Wrapper.m_Custom_MapActionsCallbackInterface.OnBackToMenu;
+                @BackToMenu.canceled -= m_Wrapper.m_Custom_MapActionsCallbackInterface.OnBackToMenu;
             }
             m_Wrapper.m_Custom_MapActionsCallbackInterface = instance;
             if (instance != null)
@@ -483,6 +508,9 @@ public class @Custom_Map_Controls : IInputActionCollection, IDisposable
                 @Scroll.started += instance.OnScroll;
                 @Scroll.performed += instance.OnScroll;
                 @Scroll.canceled += instance.OnScroll;
+                @BackToMenu.started += instance.OnBackToMenu;
+                @BackToMenu.performed += instance.OnBackToMenu;
+                @BackToMenu.canceled += instance.OnBackToMenu;
             }
         }
     }
@@ -499,5 +527,6 @@ public class @Custom_Map_Controls : IInputActionCollection, IDisposable
         void OnSave(InputAction.CallbackContext context);
         void OnLoad(InputAction.CallbackContext context);
         void OnScroll(InputAction.CallbackContext context);
+        void OnBackToMenu(InputAction.CallbackContext context);
     }
 }

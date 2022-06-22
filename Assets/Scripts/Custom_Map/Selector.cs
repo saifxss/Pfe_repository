@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class Save
@@ -173,6 +174,16 @@ public class Selector : MonoBehaviour
         if(_ic != 0){
             array.transform.GetChild(l).GetChild(c).GetChild(0).GetComponent<RawImage>().texture = Items.transform.GetChild(m).GetComponent<RawImage>().texture;
             array.transform.GetChild(l).GetChild(c).GetComponent<Item_Holder>().item= Items.transform.GetChild(m).GetComponent<Item_Holder>().item;
+        }
+    }
+    public void OnBackToMenu(InputAction.CallbackContext context)
+    {
+        if (context.ReadValue<float>()!=0)
+        {
+            LevelEditor.levelEditorInstance._menu=true;
+            LevelEditor.levelEditorInstance.transform.GetChild(0).gameObject.SetActive(true);
+            LevelEditor.levelEditorInstance.transform.GetChild(2).gameObject.SetActive(true);
+            SceneManager.LoadScene("menu");
         }
     }
     public void OnItemDelete(InputAction.CallbackContext context)

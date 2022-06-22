@@ -232,6 +232,7 @@ public class CharacterScript : MonoBehaviour
         {
             Time.timeScale = 0;
             LevelEditor.levelEditorInstance.Again();
+            LevelEditor.levelEditorInstance._menu = true;
             Chances = 3;
         }
     }

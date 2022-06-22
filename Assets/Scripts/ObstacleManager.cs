@@ -38,6 +38,7 @@ public class ObstacleManager : MonoBehaviour
         if (SceneManager.GetActiveScene().name != "Tutorial")
             _obstacles2 = LevelEditor.levelEditorInstance.currentlevel.Array;
         Time.timeScale = 1;
+        Score._score = 0;
     }
     public void ChangeArray(List<ObstacleObj> array)
     {
