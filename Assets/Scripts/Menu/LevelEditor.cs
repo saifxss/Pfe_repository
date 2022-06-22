@@ -229,7 +229,13 @@ public class LevelEditor : MonoBehaviour
                     transform.GetChild(5).gameObject.SetActive(true);
                     _LevelSelection = true;
                 }
-                if (index1 == 3)
+                if (index1 == 1)
+                {
+                    transform.GetChild(0).gameObject.SetActive(false);
+                    transform.GetChild(2).gameObject.SetActive(false);
+                    SceneManager.LoadScene("Tutorial");
+                }
+                    if (index1 == 3)
                 {
                     Application.Quit();
                 }

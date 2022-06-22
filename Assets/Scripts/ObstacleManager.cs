@@ -35,7 +35,8 @@ public class ObstacleManager : MonoBehaviour
     }
     private void SceneManager_sceneLoaded(Scene arg0, LoadSceneMode arg1)
     {
-        _obstacles2 = LevelEditor.levelEditorInstance.currentlevel.Array;
+        if (SceneManager.GetActiveScene().name != "Tutorial")
+            _obstacles2 = LevelEditor.levelEditorInstance.currentlevel.Array;
         Time.timeScale = 1;
     }
     public void ChangeArray(List<ObstacleObj> array)
@@ -80,7 +81,7 @@ public class ObstacleManager : MonoBehaviour
 
     public void Spawn()
     {
-        if (SceneManager.GetActiveScene().name == "Retro")
+        if (SceneManager.GetActiveScene().name == "Retro"|| SceneManager.GetActiveScene().name == "Tutorial")
         {
             foreach (ObstacleObj obj in _obstacles2)
             {

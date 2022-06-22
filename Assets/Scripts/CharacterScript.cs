@@ -12,7 +12,7 @@ public class CharacterScript : MonoBehaviour
     public int targetRow = 1;
     private CharacterController charController;
     public Controls PlayerControls;
-    float _hor;
+    public float _hor;
     float _jump;
     float _attack1;
     float _attack2;

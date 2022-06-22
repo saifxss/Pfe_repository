@@ -1331,7 +1331,7 @@ MonoBehaviour:
     m_ActionId: 644d310f-7bff-4d9f-9b03-3fe7bf773e01
     m_ActionName: Ui/Lobby[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: New control scheme2
+  m_DefaultControlScheme: 
   m_DefaultActionMap: Ui
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
@@ -5892,11 +5892,11 @@ RectTransform:
   - {fileID: 1933837667}
   - {fileID: 2051897263}
   m_Father: {fileID: 564241278}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -35, y: 0}
+  m_AnchoredPosition: {x: -35, y: -120}
   m_SizeDelta: {x: 450, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &379786561
@@ -7604,8 +7604,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 930918162}
-  - {fileID: 379786560}
   - {fileID: 605241535}
+  - {fileID: 379786560}
   - {fileID: 1528643797}
   m_Father: {fileID: 247209826}
   m_RootOrder: 0
@@ -7916,11 +7916,11 @@ RectTransform:
   - {fileID: 1722591674}
   - {fileID: 1707722941}
   m_Father: {fileID: 564241278}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -35, y: -120}
+  m_AnchoredPosition: {x: -35, y: 0}
   m_SizeDelta: {x: 450, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &605241536
@@ -13897,7 +13897,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Settings
+  m_text: Tutorial
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d33854a64c2dd524f97231d47907670c, type: 2}
   m_sharedMaterial: {fileID: 5798666431024337704, guid: d33854a64c2dd524f97231d47907670c, type: 2}
